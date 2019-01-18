@@ -1,0 +1,73 @@
+Lab 1 Questions
+
+Q1:Complete all edits in this file, as directed by the file, save as vi_lab, and submit along w/your lab.
+	    	Done
+
+Q2: Do an ls -l . What do you see?
+-rwxr-xr-x+ 1 kschmidt kschmidt   9216 Jan 17  2018 annoy*
+-rwxr-xr-x+ 1 kschmidt kschmidt    265 Apr 21  2016 annoy.bash*
+-rw-r--r--+ 1 kschmidt kschmidt    200 Apr  8  2018 annoy.cc
+-rw-r-----  1 kschmidt kschmidt   5317 Apr  2  2007 chmod_lab.orig
+-rw-r--r--+ 1 kschmidt kschmidt   8060 Apr  9  2018 funny
+drwxr-x---  3 kschmidt kschmidt 179585 Apr 21  2016 Grade/
+-rwxr-xr-x+ 1 kschmidt kschmidt    240 Apr  9  2018 hello.bash*
+-rw-r-----  1 kschmidt kschmidt    100 Sep 26  2013 ids
+-rw-r--r--+ 1 kschmidt kschmidt    180 Apr  2  2007 itemList
+-rw-r--r--+ 1 kschmidt kschmidt    258 Apr  2  2007 itemList-2cols
+lrwxrwxrwx  1 kschmidt kschmidt     34 Nov  2  2016 kam.html -> /home/kca26/public_html/index.html*
+-rwxr-xr-x+ 1 kschmidt kschmidt     48 Sep 25  2013 kurt*
+-rw-r--r--+ 1 kschmidt kschmidt   1596 Sep 23  2015 lateExcuses
+-rw-r--r--+ 1 kschmidt kschmidt     39 Apr  4  2012 list
+-rwxr-xr-x+ 1 kschmidt kschmidt    215 Aug  8  2012 ls*
+-rw-r--r--+ 1 kschmidt kschmidt    212 Apr  8  2018 Makefile
+-rw-r--r--+ 1 kschmidt kschmidt   8747 Jul 24  2011 moreUnix.html
+-rw-r--r--+ 1 kschmidt kschmidt     36 Apr  4  2014 msg
+-rw-r--r--+ 1 kschmidt kschmidt     24 Apr  2  2014 numList
+-rwxr-x---  1 kschmidt kschmidt     70 Jan 22  2018 output*
+-rw-r--r--+ 1 kschmidt kschmidt     52 Apr  2  2007 regexp-input
+-rw-r--r--+ 1 kschmidt kschmidt   2658 Nov  5 17:47 sample.html
+-rw-r-----  1 kschmidt kschmidt     67 Apr 11  2018 spaces
+-rwxr-xr-x+ 1 kschmidt kschmidt     75 Jan 24  2011 streams.bash*
+-rw-r--r--+ 1 kschmidt kschmidt   1648 Apr  1  2009 TelecomTruths
+-rw-r--r--+ 1 kschmidt kschmidt   8059 Apr  2  2007 tormentTelemarketers
+-rw-r--r--+ 1 kschmidt kschmidt   1446 Apr  2  2007 UnitTestingPhase
+
+Q3: If you enter chmod 644 some_file , what permissions did you give to whom?
+    Me: Read and Write
+    	Everyone Else: Only Read
+
+Q4: If you enter chmod 755 some_file , what permissions did you give to whom?
+    Me: Read, Write, and Execute
+    	Everyone Else: Read and Execute
+
+Q5: Can you read your funny file?
+    Yes.
+
+Q6: Can you read your hello.bash file?
+    Yes.
+
+Q7: Attempt to execute hello.bash: $ ./hello.bash Were you successful?
+    No.
+
+Q8: What are 2 ways of giving yourself execute permission on this file?
+    chmod 755, chmod400
+
+Q9: Type: $  chmod 400 funny. Open the file in an editor, make a change. Save the file. What happened?
+    It did not save.
+
+Q10: Execute each of the following lines:
+ls *
+ls a*
+ls *m*
+ls anno?
+ls annoy?
+What is the output of each of these?
+     ls *: CS265vi_lab  funny  git_help.txt  hello.bash
+     	ls a*: cannot access 'a*': No such file or directory
+	   ls *m*: cannot access '*m*': No such file or directory
+	      ls anno: cannot access 'anno': No such file or directory
+	      	 ls annoy: cannot access 'annoy': No such file or directory
+
+Q11: Create a file w/a space in the name: vi "a space". What happened?
+     A new file named "a" was created.
+       A new file named "space" was created.
