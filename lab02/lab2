@@ -136,3 +136,22 @@ Roger!
 
 
 
+			Problems
+
+
+Hi. I cannot for the life of me push to the lab2-git-bare directory. I keep getting this error message:
+error: src refspec master does not match any.
+error: failed to push some refs to '/home2/home-p/pjm349/CS265/lab2-git-bare'
+
+I understand the grade devaluation, but post the answers to the questions asked below:
+
+
+
+  	     	       	Question 12
+I would have used the "git checkout [commit number] --lab2"
+
+
+
+
+			Question 13
+You will be able to inspect the version and commit history of any files on Gitlab. This will readi;y indicate that my file did not in fact receive any changes.
