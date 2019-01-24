@@ -1,0 +1,138 @@
+
+Peter J. Mangelsdorf
+pjm349
+Lab 2 CS265
+
+Contents:
+	Answer  11.1: lines 22 - 70
+	Answer  11.2: line 76
+	Answer  11.3: line 81
+	Answer  11.4: lines 86 - 88
+	Answer  11.5: line 93
+	Answer  11.6: line 99
+	Answer  11.7: line 103
+	Answer  11.8: line 107
+	Answer  11.9: line 112
+	Answer 11.10: lines 124 - 129
+	Answer 11.11: line 133
+
+
+
+										       	      	     	  Question 1: Oh dear.... I'm so sorry....
+													  ./pjm349-CS265-winter2019/lab02/check.bash
+													  ./pjm349-CS265-winter2019/lab02/hello
+													  ./pjm349-CS265-winter2019/lab02/loop_subshell.bash
+													  ./pjm349-CS265-winter2019/lab02/tmp/hello
+													  ./pjm349-CS265-winter2019/lab02/tmp/at
+													  ./pjm349-CS265-winter2019/lab02/tmp/2at
+													  ./pjm349-CS265-winter2019/lab02/tmp/list
+													  ./pjm349-CS265-winter2019/lab02/tmp/hat
+													  ./pjm349-CS265-winter2019/lab02/tmp/cat
+													  ./pjm349-CS265-winter2019/lab02/tmp/chat
+													  ./pjm349-CS265-winter2019/lab02/tmp/mat
+													  ./pjm349-CS265-winter2019/lab02/tmp/bat
+													  ./pjm349-CS265-winter2019/lab02/mySettings
+													  ./pjm349-CS265-winter2019/lab02/spellExample
+													  ./pjm349-CS265-winter2019/lab02/.!33928!outline.html
+													  ./pjm349-CS265-winter2019/lab02/printx
+													  ./pjm349-CS265-winter2019/lab02/ids
+													  ./pjm349-CS265-winter2019/lab02/input
+													  ./pjm349-CS265-winter2019/lab02/args.bash
+													  ./pjm349-CS265-winter2019/lab02/hello.py
+													  ./pjm349-CS265-winter2019/lab02/index2.html
+													  ./pjm349-CS265-winter2019/lab02/blah.bash
+													  ./pjm349-CS265-winter2019/lab02/.hidden
+													  ./pjm349-CS265-winter2019/lab02/rv.bash
+													  ./pjm349-CS265-winter2019/lab02/.!23699!outline.html
+													  ./pjm349-CS265-winter2019/lab02/isatty.bash
+													  ./pjm349-CS265-winter2019/lab02/list
+													  ./pjm349-CS265-winter2019/lab02/out.bash
+													  ./pjm349-CS265-winter2019/lab02/makefile
+													  ./pjm349-CS265-winter2019/lab02/.!19904!outline.html
+													  ./pjm349-CS265-winter2019/lab02/outline.html
+													  ./pjm349-CS265-winter2019/lab02/setVars
+													  ./pjm349-CS265-winter2019/lab02/.!18884!outline.html
+													  ./pjm349-CS265-winter2019/lab02/descin
+													  ./pjm349-CS265-winter2019/lab02/varChange
+													  ./pjm349-CS265-winter2019/lab02/breadIsDangerous.txt
+													  ./pjm349-CS265-winter2019/lab02/index.html
+													  ./pjm349-CS265-winter2019/lab02/hello.bash
+													  ./pjm349-CS265-winter2019/lab02/eg.bash
+													  ./pjm349-CS265-winter2019/lab02/README
+													  ./pjm349-CS265-winter2019/lab02/msg
+													  ./pjm349-CS265-winter2019/lab02/Play/a b
+													  ./pjm349-CS265-winter2019/lab02/Play/foo
+													  ./pjm349-CS265-winter2019/lab02/.gitignore
+													  ./pjm349-CS265-winter2019/lab02/func.bash
+													  ./pjm349-CS265-winter2019/lab02/.!21089!outline.html
+													  ./pjm349-CS265-winter2019/lab02/hello.c
+													  ./pjm349-CS265-winter2019/lab02/getopts.bash
+													  ./pjm349-CS265-winter2019/lab02/fred
+
+
+
+
+															Question 2
+															find -name "*.bash"
+
+
+
+															     	   Question 3
+																   ./gotMe.bash
+
+
+
+																		Question 4			(wc -m -w -l)
+																		97 Characters
+																		499 Words
+																		2690 Lines
+
+
+
+																			Question 5
+																			grep the | wc -l breadIsDangerous.txt
+
+
+
+
+																			     	 Question 6
+																				 spellExample.bak now exists within the directory.
+
+
+																				 		      Question 7
+																						      The output is a listing of all the different lines between the two files. The .bak file appears to be a historical reference file, containing the older version of spellExample.bak.
+
+
+																						      	  	 Question 8
+																								 Nothing. No output was returned by the function.
+
+
+
+																								 	     Question 9
+																									     ANSWER: du * -b | sort -n | tail -8
+
+(Please pardon my scribblings here.)
+"du" shows all current disk usage
+"du *" shows all files in directory
+"du * -b" shows all files and their sizes
+"du * -b | sort" shows all files sorted by first integer of their string
+"du * -b | sort -n" shows all files sorted by their size according to their entire number string
+"du * -b | sort -n | tail" shows all files at the end of the sort by the number of their size on the disk
+"du * -b | sort -n | tail -8" shows the largest 8 files in the directory
+
+      	 Question 10
+	 "grep dough..." Returns the lines contating the word from the file.
+	 "echo $?" Returns "0: Command not found". There are no manual entries for "?" or "$". This is probably a legacy code snippet.
+	 "grep uniqueString..." Returns nil. Grep did not find any lines containing this string.
+	 "echo $?" Again, returns "0: Command not found".
+	 "grep dough noSuch..." Returns an error message because the filename does not belong to any file.
+	 "echo $?" Again, returns "0: Command not found".
+
+
+	       	   Question 11
+		   Roger!
+
+
+
+
+

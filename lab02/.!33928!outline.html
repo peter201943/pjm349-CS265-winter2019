@@ -1,0 +1,69 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta name="Author" content="Kurt Schmidt">
+	<script language="JavaScript" src="../../../Scripts/pageFormat.js"></script>
+	<title>CS265 - Rough Outline</title>
+</head>
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#FF0000"
+	background="https://www.cs.drexel.edu/~kschmidt/images/blueTexture.jpeg">
+
+
+<h1>Week 3</h1>
+
+<h2>Leftover from last week:</h2>
+
+<ul>
+	<li><b><tt>lp</tt></b>, <b><tt>lpstatus</tt></b>, <b><tt>cancel</tt></b>
+	- printing</li>
+	<li><b><tt>unzip</tt></b> - for PC ZIP files (PKWare)</li>
+	<li><b><tt>find</tt></b> - rather powerful find utility</li>
+	<li><b><tt>dc</tt></b> - desktop calculator (postfix)</li>
+	<li><b><tt>diff</tt></b> - compare 2 files (line by line)</li>
+	<li><b><tt>wc</tt></b> - count chars, words, and lines in files</li>
+	<li><b><tt>factor</tt></b> - print prime factors</li>
+	<li><b><tt>ispell</tt></b> - print out misspellings</li>
+</ul>
+
+<h2>a C++ program - <tt>cat</tt></h2>
+
+<h2>Return values from commands</h2>
+
+<p>The special variable <tt><b>$?</b></tt> holds the return value of the
+last executed command.  Unlike C, 0 is true, and all else is false.
+Or you can just test for a value explicitly, and not worry about it.
+
+<blockquote><tt>
+	grep blah someFile &gt; /dev/null 2&gt;&amp;1
+	<br>if [ $? == "0" ] ; then
+	<br>&nbsp;&nbsp;echo "Found a match!"
+	<br>else
+	<br>&nbsp;&nbsp;echo "Didn't find anything."
+	<br>fi
+</tt></blockquote>
+
+<h2>Command substitution</h2>
+
+<p>bash will replace a command surrounded by grave accents '<tt>`</tt>'
+with the output from the command.  E.g.,
+
+<blockquote><tt>
+	cat `ls e*`
+</tt></blockquote>
+
+<p>will print the contents of all files in current directory that start
+with an e.  This would be quicker:  <tt>cat e*</tt>  But 
+
+<blockquote><tt>
+	more `grep -l secret *`	# the -l means "just the filename, not the line"
+</tt></blockquote>
+
+<p>will print, a page at a time, the contents of all files that contains
+a "secret".
+
+<h2>Background Processes</h2>
+
+<ul>

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -n "$x" ]] ; then
+	echo "\$x is: $x"
+else
+	echo '$x is not defined (is empty, null)'
+fi
+
