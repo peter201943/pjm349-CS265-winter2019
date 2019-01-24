@@ -15,8 +15,8 @@ Contents:
 	Answer  11.9: line 112
 	Answer 11.10: lines 124 - 129
 	Answer 11.11: line 133
-
-
+	Answer 11.12: line 151
+	Answer 11.13: line 157
 
 				Question 1: Oh dear.... I'm so sorry....
 ./pjm349-CS265-winter2019/lab02/check.bash
@@ -154,4 +154,4 @@ I would have used the "git checkout [commit number] --lab2"
 
 
 			Question 13
-You will be able to inspect the version and commit history of any files on Gitlab. This will readi;y indicate that my file did not in fact receive any changes.
+You will be able to inspect the version and commit history of any files on Gitlab. This will readily indicate that my file did not in fact receive any changes.
