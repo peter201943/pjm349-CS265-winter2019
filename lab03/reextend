@@ -7,13 +7,31 @@
 #CS 265
 #30 Jan 2019
 #
-#	Write a shell script that accepts two file extensions as command line arguments and renames all files with thefirst extension within the current working directory to have the second extension instead. 
-#		reextend .log .txt
-#		Would cause install.log to be renamed to install.txt, and 
-#		reextend A B
-#		Would cause TADAA to be renamed to TADAB . It would also cause file.A to be renamed file.B .
-#	The script should print out error messages as is appropriate if there is any problem with the command linearguments. Test the script with a range of different parameters, including incorrect parameters or missingparameters. 
-#	hint: See Parameter Expansion in the bash man or info page. 
-#	hint: See what ls -1 does. 
+#Write a shell script that accepts two file extensions as command line arguments and renames all files with thefirst extension within the current working directory to have the second extension instead.
+#reextend .log .txt
+#Would cause install.log to be renamed to install.txt, and
+#reextend A B
+#Would cause TADAA to be renamed to TADAB . It would also cause file.A to be renamed file.B .
+#The script should print out error messages as is appropriate if there is any problem with the command linearguments. Test the script with a range of different parameters, including incorrect parameters or missingparameters.
+#hint: See Parameter Expansion in the bash man or info page.
+#hint: See what ls -1 does.
 #
 
+if [ -z "$1" ] || [ -z "$2" ] || [ -n "$3" ]; then
+    echo '\t'Error: No arguments were used with this command
+    echo '\t'Format: $0 [file extension] [file extension]
+    echo '\t'Example: $0 .txt .exe
+    echo '\t'This will find any file.txt and rename it to file.exe
+    exit
+fi
+
+for file in $(ls *$1); do
+    mv --force $file ${file%$1}$2
+done
+
+
+
+# ![['.' == *"$1"* ]]
+#Ignore this. Tried to get this to work but UNECESSARY. Here for my own notes.
+#Tried to implement a check for "." in the first entry to make sure user specified an extension.
+#Alas, ls doesnt care....
