@@ -1,0 +1,47 @@
+
+Lab 3 Bash Scripts
+Peter J. Mangelsdorf
+pjm349
+CS265 Bill Mongan
+
+Answers
+	Answer 1 - line 40
+	Answer 2 - line 43
+	Answer 3 - line 46
+	
+Notes
+	~wmm24/public_html/cs265_wi19/resources/Labs/Bash
+	Upload all 3 files with the lab
+		count.bash
+		reextend
+		organiseMusic
+	
+TASK 1
+	Write a script called count.bash that, for each regular file in theworking directory, prints the filename, the # of lines, and the # of words to stdout, like this without using FIND. Must support spaced filenames: 
+		breadIsDangerous.txt 73 431 
+		spellExample 5 21
+TASK 2
+	Write a shell script that accepts two file extensions as command line arguments and renames all files with thefirst extension within the current working directory to have the second extension instead. 
+		reextend .log .txt
+		Would cause install.log to be renamed to install.txt, and 
+		reextend A B
+		Would cause TADAA to be renamed to TADAB . It would also cause file.A to be renamed file.B .
+	The script should print out error messages as is appropriate if there is any problem with the command linearguments. Test the script with a range of different parameters, including incorrect parameters or missingparameters. 
+	hint: See Parameter Expansion in the bash man or info page. 
+	hint: See what ls -1 does. 
+	
+TASK 3
+	You just used your favorite ripper to get some songs off a bunch of CDs that you legally purchased. You set theoutput format, got the bit-rate you wanted, but forgot to set the format for the filenames. You ended up w/listingslike this: 
+		Led Zeppelin - Over the Hills and Far Away.mp3
+	all in the same directory. What you really wanted was to have the songs in directories by artist, and just thesong name for the filename: 
+		Led Zeppelin/Over the Hills and Far Away.mp3
+	So, write a script that looks in the current directory only for mp3 files, breaks the filename out into artistand song title, creates the appropriate directory (if it doesn't already exist), removes the artist and the first '- ' from the filename, and moves it into the directory. 
+	
+Question 1
+	Done
+
+Question 2
+	Done
+
+Question 3
+	Done
