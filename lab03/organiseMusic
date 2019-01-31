@@ -7,10 +7,29 @@
 #CS 265
 #30 Jan 2019
 #
-#	You just used your favorite ripper to get some songs off a bunch of CDs that you legally purchased. You set theoutput format, got the bit-rate you wanted, but forgot to set the format for the filenames. You ended up w/listingslike this: 
-#		Led Zeppelin - Over the Hills and Far Away.mp3
-#	all in the same directory. What you really wanted was to have the songs in directories by artist, and just thesong name for the filename: 
-#		Led Zeppelin/Over the Hills and Far Away.mp3
-#	So, write a script that looks in the current directory only for mp3 files, breaks the filename out into artistand song title, creates the appropriate directory (if it doesn't already exist), removes the artist and the first '- ' from the filename, and moves it into the directory. 
+#You just used your favorite ripper to get some songs off a bunch of CDs that you legally purchased. You set the output format, got the bit-rate you wanted, but forgot to set the format for the filenames. You ended up w/listings like this:
+#Led Zeppelin - Over the Hills and Far Away.mp3
+#all in the same directory. What you really wanted was to have the songs in directories by artist, and just the song name for the filename:
+#Led Zeppelin/Over the Hills and Far Away.mp3
+#So, write a script that looks in the current directory only for mp3 files, breaks the filename out into artist and song title, creates the appropriate directory (if it doesn't already exist), removes the artist and the first '- ' from the filename, and moves it into the directory.
 #
+#So, finds all matching files for filetype
+#Then makes directory for artist
+#Then mv the file to just the songname after cping it to the directory
+#got it
+#looks like splitting on the '-'
+#And another IFS hack...
 
+myifs=$IFS
+IFS='
+'
+
+for file in $(ls *.mp3); do
+    artistname=${file##*-}
+    mkdir $artistname
+    newname=${file##*-:*.}
+    file=$newname
+    cp $file $artistname
+done
+IFS=$myifs
+exit

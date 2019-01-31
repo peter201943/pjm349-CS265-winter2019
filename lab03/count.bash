@@ -13,10 +13,18 @@
 #
 #INPUT: Directory command is called in
 #OUTPUT: Filename, Line Count, Word Count
-#
+#Ewww... IFS MODS?!??!
+#OMG - Note to future self - check out that definition of IFS! Lol.
+
+myifs="$IFS"
+IFS=$'
+'
 
 for file in $(ls -p | grep -v /); do
     lines=$(wc -l <$file)
     words=$(wc -w <$file)
     echo $file $lines $words
 done
+
+IFS="$myifs"
+exit
