@@ -1,0 +1,80 @@
+
+Peter J. Mangelsdorf
+
+Lab 4 Regular Expressions and Awk
+
+Contents
+	Answer  1: Line 42
+	Answer  2: Line 46
+	Answer  3: Line 49
+	Answer  4: Line 52
+	Answer  5: Line 55
+	Answer  6: Line 58
+	Answer  7: Line 61
+	Answer  8: Line 64
+	Answer  9: Line 67
+	Answer 10: Line 70
+	Answer 11: Line 73
+	Answer 12: Line 76
+	Answer 13: Line 80
+
+Notes
+	~wmm24/public_html/cs265_wi19/resources/Labs/Regexp
+	bright_side_of_life
+	3 Ways to find Kurt:
+		egrep 'kurt' bright_side_of_life
+		awk '/kurt/' bright_side_of_life 
+		sed -n '/kurt/p' bright_side_of_life 
+	Anagram Tools
+		String Operands and Sorts in C
+		sort
+		awk
+		head
+		tail
+	home/wmm24/public_html/cs265_wi19/resources/Labs/Anagram 
+	stop and pots are anagrammable words (shared letters)
+	Mentioned anagram method is silly. Count occurrences of chars with wc, if same then anagram = true
+		Or use sort. ok.
+	
+
+Regular Expressions
+	Q1: match all lines that contain the string the
+		egrep 'the' bright_side_of_life
+		
+	Q2: match all lines that contain the word the (not as a substring of a larger word)
+		egrep ' the ' bright_side_of_life
+		egrep -w 'the' bright_side_of_life
+
+	Q3: match all lines that contain the word Just
+		egrep 'Just' bright_side_of_life
+
+	Q4: match all lines that contain Just or just
+		egrep 'just|Just' bright_side_of_life
+
+	Q5: match all lines that start w/the word Just or just
+		egrep 'Just|^just' bright_side_of_life
+
+	Q6: match all lines that contain the word bad or mad
+		egrep -w 'bad|mad' bright_side_of_life
+
+	Q7: match all lines that contain the word death or breath
+		egrep -w 'breath|death' bright_side_of_life
+
+	Q8: match all lines that end with you. Trailing punctuation is acceptable (so, possibly followed by a period or a comma)
+		egrep 'you$|you.$|you!$|you,$' bright_side_of_life
+
+	Q9: match lines that have leading whitespace?
+		egrep '^ ' bright_side_of_life
+
+	Q10: match blank lines?
+		egrep -x '' bright_side_of_life
+
+	Q11: How many are there?
+		Eleven
+
+	Q12: [what'd he say?]
+		Monty Python's Life of Brian!
+	
+Anagrams
+	Q13: anagram file location.
+		Should be in lab04
