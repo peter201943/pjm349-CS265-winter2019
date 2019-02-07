@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+#Peter J. Mangelsdorf
+#"My Top Level Bash Script to Generate Output"
+#
+#    GENERAL PLAN
+#1. Accept Input to a Variable
+#2. Loop through each word and sort it
+#3. Sort the words by their key
+#4. Find Adjacent Words with Matching Keys
+#5. Print the matches
+#
+#     DETAILED PLAN
+# 1. Use sign.c to read the "input" file
+# 2. Use sign.c to write the "output" file - add some date +%s randomness if necessary
+# 3. gcc -osign sign.c
+# 4. Use sort on the variable containing the inputs
+# 5. Use squash.awk to find adjacent words
+# 6. ./sign < /usr/share/dict/words | sort | ./squash.awk > out
+# 7. Then find the largest anagram "classes"
+# 8. awk '{ print NF " " $0}' < out | sort -n | tail 
+# 9. The "Key" is an integer of the characters in the word
+#10. sign < /usr/share/dict/words | more 
+#
+#     COMMENTS
+#Think I will just do this on the CLI until I get it right and paste it in here.
+#Had to change it a bit:
+# ./sign < /usr/share/dict/words | sort | awk -f squash.awk
+#Really doesn't like it the other way
+#Also can't cat sign. Seems to pull an error in putty....
+#Wow. That was cool. Tried the awk script! Didn't think all that could be done on a single line.
+#Cool. Think I got it.
+#
+#    ENOUGH TALK, WHERE'S THE CODE!?!?!
+
+#My Stuff
+if [ -e words ] || [ -e sign.c ] || [ -e squash.awk ]; then
+    #Stuff Instructors gave us
+    gcc -osign sign.c
+    ./sign < words | sort | awk -f squash.awk > out
+    awk '{ print NF " " $0}' < out | sort -n | tail
+else
+    echo "Warning: Critical Files Missing!"
+fi
+
