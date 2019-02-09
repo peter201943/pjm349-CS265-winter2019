@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+#Peter J. Mangelsdorf
+#CS 265
+#Assignment 1
+#Problem 3
+#
+#Return a list of messages sent on a date.
+#Use command line arguments for the date.
+#Use this format:
+#prob3 year month day
+#
+#My Thoughts:
+#1. Setup for loops to go through the entire directory and each file
+#2. Open the head of the file to see if it is the right date
+#3. Echo the filename if the file is correct
+#
+
+#Checks if command used properly
+if [ -z "$1" ]||[ -z "$2" ]||[ -z "$3" ]||[ -z "$4" ]||; then
+    echo '\t'Error: No arguments were used with this command
+    echo '\t'Format: $0 [file directory] [year] [month] [day]
+    echo '\t'Example: $0 $(pwd) 1999 6 23
+    echo '\t'This will find any emails in the working directory who match the 23rd of June, 1999
+    exit
+fi
+
+#Sets the Archive Variable and Date Variable
+ARCHIVE=$1
+the_date='$3/$4/$2'
+
+#Returns any files which match the date
+for folder in $ARCHIVE; do
+    for file in $folder; do
+	this_date=$((head $file | grep 'TimeStamp' | cut -d ' ' -f2))
+	if [$this_date=$the_date]
+	then echo $file
+	fi
+    done
+done

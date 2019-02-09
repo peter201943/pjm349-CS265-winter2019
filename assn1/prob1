@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+#Peter J. Mangelsdorf
+#CS 265
+#Assignment 1
+#Problem 1
+#
+#Return how many directories actually contain files.
+#Return total number of sent messages.
+#Use this format:
+#    Number_of_Directories       Number_of_Messages_Sent
+
+#Checks if command used properly
+if [ -z "$1" ]; then
+    echo '\t'Error: No arguments were used with this command
+    echo '\t'Format: $0 [file directory]
+    echo '\t'Example: $0 $(pwd)
+    echo '\t'This will find any directories in the current working directory
+    exit
+fi
+
+#Sets the Archive Variable
+ARCHIVE=$1
+
+#Counts the Number of Files and Folders
+total_file_count=0
+folder_count=0
+for folder in $ARCHIVE; do
+    file_count=0
+    total_file_count=$(($total_file_count + $file_count))
+    
+    #Counts each folder
+    for file in $folder; do
+	senter=egrep'Sent' < head $file | cut -d':' -f2
+	if [$senter="Sent"]
+	then file_count=$(($file_count + 1))
+	fi
+    done
+
+    #Checks that folder is not empty and adds it to the count
+    if ls -1qA $folder | grep -q .
+    then
+	folder_count=$(($folder_count + 1))
+    fi
+done
+
+#Returns the results
+echo $folder_count $total_file_count

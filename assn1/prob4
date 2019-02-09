@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+#Peter J. Mangelsdorf
+#CS 265
+#Assignment 1
+#Problem 4
+#
+#Return a list of target hostnames and messages sent for each.
+#Hostname Example: drexel.edu (from pjm349@drexel.edu)
+#Sort the list in descending order of hits.
+#combine capitalized and lowercase hostnames into a single hostname
+#Use this format:
+#hostname hits
+#"total"  Number of Hostnames
+#
+#My Thoughts:
+#01. Setup for loops (again) to go through each directory and each file
+#02. Take head of file and grep for "To:"
+#03. Cut that string with cut on the @
+#04. Cut that string on the space
+#05. Convert the string into lowercase
+#06. Check if string in list of hostnames:Hits dictionary
+#07. If String not in the dict, add it
+#08. If string IS in dict, up the hit of that string
+#09. When done, sort (descending)
+#10. When done, echo the dictionary
+#11. After that, echo a total of all sent messages (add up the hits)
+#
+
+#Checks if command used properly
+if [ -z "$1" ]; then
+    echo '\t'Error: No arguments were used with this command
+    echo '\t'Format: $0 [file directory]
+    echo '\t'Example: $0 $(pwd)
+    echo '\t'This will find any directories in the current working directory
+    exit
+fi
+
+#Sets the Archive Variable
+ARCHIVE=$1
+
+#Checks each file for its target. Then checks if target is documented. Then updates the score of that target.
+targets_hits=""
+for folder in $ARCHIVE; do
+    for file in $folder; do
+	current_target=head $file | grep "To" | cut -d '@' -f2 | cut -d ' ' -f1
+	current_target=$current_target | tr '[:upper:]' '[:lower:]'
+	targets=$targets_hits | cut -d ' ' -f1
+	if [$current_target in $targets]
+	then $targets | grep $current_target | cut -d ' ' -f2 | +1
+	else $targets=${targets}"\n"${current_target}" 0"
+	fi
+    done	
+done
+
+#I just realized that I don't need to write to a variable every time I do something.
+
+#Sorts and reverses the targets:hits
+sort $targets_hits | rev
+hits=$targets_hits | cut -d ' ' -f2
+total_hits=0
+
+#Adds up the total number of sent messages
+for hit in $hits;do
+    total_hits=$(($total_hits + $hit))
+done
+
+#Returns targets:hits and totals
+echo $targets_hits
+echo total $total_hits
+
+#To whoever reads this:
+#I apologize dearly for the mess of mixed styles, commands, structures, etc.
+#It really is quite messy.

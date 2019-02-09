@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+#Peter J. Mangelsdorf
+#CS 265
+#Assignment 1
+#Problem 2
+#
+#Find how many messages are in the longest thread.
+#Return a list of threads of the same longest length.
+#
+#This is how I see it:
+#1. Setup the for loops to go through each file
+#2. Split the filenames on the '_' to get the second part (the number)
+#3. Look for any filenames with a bigger number. (Recurse as needed)
+#4. When Biggest number found, find all filenames which match that number at the end. (Grep)
+#
+
+#Checks if command used properly
+if [ -z "$1" ]; then
+    echo '\t'Error: No arguments were used with this command
+    echo '\t'Format: $0 [file directory]
+    echo '\t'Example: $0 $(pwd)
+    echo '\t'This will find any directories in the current working directory
+    exit
+fi
+
+#Sets the Archive Variable
+ARCHIVE=$1
+
+#Find the Biggest Number
+biggest_number="0"
+for folder in $ARCHIVE; do
+    for filename in $(ls $1); do
+	current_number=$(($filename | cut -d ' ' -f2))
+	if [$current_number gt $biggest_number]
+	then
+	    biggest_number = $current_number
+	fi
+    done
+done
+
+#Match all files with the Biggest Number
+filenames=""
+current_number="0"
+for folder in $ARCHIVE; do
+    for filename in $(ls $1); do
+	current_number=$(($filename | cut -d ' ' -f2))
+	if [$current_number=$biggest_number]
+	then echo $filename
+	fi
+    done
+done

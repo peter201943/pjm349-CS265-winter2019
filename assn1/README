@@ -1,0 +1,21 @@
+
+ASSIGNMENT 1
+Peter J. Mangelsdorf
+Prof. Will Mongan
+CS 265
+8 Feb 2019
+
+I like command line arguments. All of my problems use command line arguments. Do not try and set a global "$ARCHIVE" variable, the problems will not listen to you. To use the scripts as intended:
+
+prob1
+	$ prob1 /path/to/archive/
+
+prob2
+	$ prob2 /path/to/archive/
+
+prob3
+	$ prob3 /path/to/archive/ year month day
+
+prob4
+	$ prob4 /path/to/archive
+
