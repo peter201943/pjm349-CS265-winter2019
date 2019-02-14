@@ -1,0 +1,187 @@
+
+Lab 5: Python with Style
+
+* General Information
+ - Peter J. Mangelsdorf
+ - Professor Will Mongan
+ - CS 265
+ - 13 February 2019
+ - This lab was written with org-mode and visual-line-mode in Emacs. Use [tab] over a heading to expand it. The text will automatically conform to the screen.
+ - I wanted to experiment with some new techniques. For this lab, I will try using Knuth's, "Literate Programming," style with Emacs and org-mode. Yes, I can hear the vimmers calling for bloodshed. Too bad.
+ - https://www.offerzen.com/blog/literate-programming-empower-your-writing-with-emacs-org-mode
+ - https://orgmode.org/worg/org-contrib/babel/intro.html
+* Table of Answers
+ - Answer 1.1 (Python): Line 40
+ - Answer 1.2 (Python): Line 42
+ - Answer 1.3 (Python): Line 45
+ - Answer 2.1 (Style): Line 113
+ - Answer 2.2 (Style): Line 123
+ - Answer 2.3 (Style): Line 125
+ - Answer 2.4 (Style): Line 150
+ - Answer 2.5 (Style): Line 152
+ - Answer 2.6 (Style): Line 156
+ - Answer 2.7 (Style): Line 171
+ - Answer 2.8 (Style): Line 175
+ - Answer 2.9 (Style): Line 176
+ - Answer 2.10 (Style): Line 183
+ - Answer 2.11 (Style): Line 187
+* Python Notes
+     ~wmm24/public_html/cs265_wi19/resources/Labs/Python
+     Examples:
+        strings.py - 
+	args.py - 
+	input.py - 
+	readFile.py - 
+	stdin.py - 
+	grep.py - 
+	parsePhoneNrs.py - 
+* Python Questions [2/3]
+
+ 1. [X]  Look at the students.csv input file in the directory. Write a Python program that, for each student, computes the average of all of the scores for that student, prints 2 columns: the name, followed by the average, separated by a comma. See str.strip and str.split to help you. The name of the file will be read as the first command-line argument. Submit a file called s1.py
+
+ 2. [X]  Look at the ids file. You will read a file like this, break each record up into 2 fields; the id, and the name. Look more closely at str.split to help you here. You will store the entries in a dictionary, where ID is the key, and the name is the satellite data. You will then output, in 2 columns, one entry per line, all the entries in your dictionary, sorted (numerically) by ID. dict.keys and list.sort should help you here. The input filename will be the first command-line argument. If no argument is supplied it will read stdin, much like cat, grep, head, etc.
+Submit a file called id.py
+
+ 3. [ ] Modify parsePhoneNrs.py so that it also parses and displays extensions, if they exist, as in the following examples:
+    800-555-1212-300
+    (212) 244-4480 x7 
+Those are the only forms you need to worry about. An extension may have 1-4 digits (in either form). Call the file parsePhoneNrs.py and submit it along w/the lab.
+
+* Style Notes
+ - Hmmm. Interesting quote.
+ - ? = Bad Code
+** Names
+ - Memorable, pronounceable, short, concise, might as well be blessed by the Pope too.
+ - Global Names: Descriptive
+ - Local Names: Short
+ - Short Comment with Declaration of a global
+ - Should describe WHY, not HOW of code unless mystical
+ - "Globals"
+ - "CONSTANTS" (Are we in SmallTalk world?)
+ - "locals"
+ - Consistency above all else
+   - Q, queue, Quese within same function is bad
+   - queue.queseCapacity overkill for local function
+ - Active Verbs instead of Nouns for Function Names (Because they DO Something)
+   - "getTime" versus "time"
+** Expressions and Statements
+ - Use spaces around operators (But not in Bash!)
+ - Indent, indent, indent (Esp. with Lisp! Ick!)
+ - Write expressions as they are spoken - read the code
+ - Parentheses remove Ambiguity (Or add them in Lisp...)
+ - Parenthesis make code easier to read
+ - Break up complex expressions (No one-liners unless absolutely necessary!)
+ - Avoid clever code: Be Clear
+ - Avoid short code if it looks like awk
+ - Beware Side Effects
+ - Put variable modifiers and variable dependencies on separate lines
+** Consistency and Idioms
+ - Use consistent indents and braces
+   - Yeah, uh. Ick. Even WITH braces that is some ugly code.
+ - Use Idioms?
+    - What is an Idiom? - An established standard.
+ - Hmm. I don't know how to feel about these idioms. If we don't want people to code any other way, why not have the language strictly enforce that structure?
+ - Place nested if's on separate lines.
+** Function Macros
+ - Macros are weak? Better tell Norvig...
+ - Avoid Function Macros
+ - Macros are dangerous because they are difficult to write?
+ - Macros work by text substitution. Huh. That's kinda cool actually.
+ - Use Parentheses in a macro definition.
+ - Oh, the infamous square example! I've heard about this one before!
+ - All the more reason to use Lisp!
+   - If I wanted to drown in MORE parenthesis that is...
+** Magic Numbers
+ - Give magic numbers magic names
+ - Don't use macros for magic numbers - Boy, this guy must've been burned by them or something...
+ - Use const or static final instead
+ - Use variables, not explicit integers?
+ - Use the right data type for the right variable
+ - Write code to be as dynamic as possible - react to changes in size of data.
+** Comments
+ - Don't state the obvious? - No worthless/easily readable code comments
+ - Don't list simple steps.
+ - Comment on Functions and Global Data
+ - Comment globals as sparsely occur
+ - Point to manuals, etc. if algorithm complex - Like in text citation
+ - Short Description always helpful
+ - Fix bad code versus document it
+ - Don't contradict the code - lol, this is a managment issue. No one DELIBERATLEY allows comments to go out of date, it just sort of, "happens."
+** Why Bother?
+ - Avoid Another FO76. At. All. Costs.
+* Style Questions [11/11]
+ 1. [X] Comment on the choice of names and values:
+           Constants in caps, but 1 and 0 should be reversed
+           What is ch?
+           EOF and not_eof inconsistent.
+ 2. [X] Improve this function:
+           int makeSmaller(char *first_s, char *second_s) {
+               if (stringCompute(first_s, second_s) < 1)
+                   return 1;
+               else
+                   return 0;
+            }
+ 3. [X] Read Aloud:
+            "If the function falloc-y of Summer Health Scratch, S-If-Ext 0644, and max rod distance is less than 0..."
+ 4. [X] Improve the fragments:
+            Uhhhh..... Yeah, I don't know any C. I'll try?
+            if ( not(c == 'y') || (c == "Y") )
+               return;
+            
+            int length = 0
+            if (length < BUFSIZE)
+               return length;
+            else
+                return BUFSIZE;
+       
+            flag = 0
+            if (flag = 0)
+                flag =  1;
+
+            quote = ""
+            if (*line == '"')
+                quote = "1"
+            else
+                quote = "0"
+
+            if (val & 1)
+                return 1;
+            else
+                return 0;
+ 5. [X] Identify the error:
+            ip is missing a * on line 2
+ 6. [X] List possible outputs:
+            ? ? 2 3
+            ? ? 4 5
+            ? ? 6 7
+ 7. [X] Rewrite the Excerpts:
+            if (istty(stdin))
+                ;
+            else if (istty(stdout))
+                ;
+            else
+                return(0);
+
+            if (reval != SUCCESS)
+                return(retval);
+            else
+                return SUCCESS;
+
+            for (k = 0; k++ , 5; x += dx)
+                scanf("%lf", &dx);
+ 8. [X] Rewrite the loop:
+            while (int count = 0; count; count < total; count++)
+                {if (this.getName(count) == nametable.userName())
+                    return(true);}
+ 9. [X] Identify the errors in the macro loop:
+            Hmmm. Not enough parentheses around the ? part? I don't know how those get handled.
+ 10. [X] Rewrite the Definitions
+            float FT2METER = 0.3048
+            float METER2FT = (1 / FT2METER)
+            float MI2FT = 5280.0
+            float MI2KM = (FT2METER * 5.28)
+            float SQMI2SQKM = (MI2KM ** 2)
+ 11. [X] Comment on the Comments
+            1. Obvious, unnecessary
+            2. Obvious
+            3. Too many comments. I do not know what all the % are for, but they probably aren't explicit enough.
