@@ -1,0 +1,86 @@
+
+Lab 6: Python with Structure
+
+* General Information
+ - Peter J. Mangelsdorf
+ - Professor Will Mongan
+ - CS 265
+ - 20 February 2019
+* Table of Answers
+ - Question 1.1  (Abstract Data Types): Line 21
+ - Question 1.2  (Searching/Analysis): Line 27
+ - Question 1.3  (Searching/Analysis): Line 35
+ - Question 1.4  (Searching/Analysis): Line 37
+ - Question 1.5  (Sorting): Line 41
+ - Question 1.6  (Pointers and References): Line 55
+ - Question 1.7  (Pointers and References): Line 60
+ - Question 1.8  (Pointers and References): Line 61
+ - Question 1.9  (Pointers and References): Line 74
+ - Question 1.10 (Pointers and References): Line 75
+* Abstract Data Types Answers [1/1]
+ 1.  [X] Describe Each of the Following:
+        List - A series of data containers stored one after the other in any arbitrary order. This arrangement can be sorted, searched, and linearly operated on
+        Stack - A series of data containers stored first on last off.
+        Queue - A series of data containers stored first on first off.
+        Dictionary - A series of data containers stored in any arbitrary order. The data containers contain two smaller data containers, called a key-value pair. The key data container points to the value data container. This arrangement can be searched for hashing, mapping, or other operations.
+* Search/Analysis Answers [3/3]
+ 2.  [X] How many times will Binary Search compare items in a sorted array of n elements?
+       log(n) times. You search a binary tree by cutting the pivot in half on each iteration. This means for a set of 100 elements, the worst possible search would be 7 searches, or 100/2, 50,2, 25/2, 13/2, ending with 7.
+       Here is an Example:
+       If array of 5 elements, [1 2 3 4 5], 
+                3
+               2 4
+              1   5
+       if x = 4, 4>3, 4=4, stop. Two comparisons. If x = 2.
+ 3.  [X] How many times will Linear Search compare items in an unsorted array of n elements?
+       n times. If the element is at the end of the list, Linear search must check each element before that element.
+ 4.  [X] When would Linear Search be preferable over Binary Search?
+    Any time you are using small data sets, lists are preferable for their simplicity.
+    They are also better at preserving the order of sata, such as in strings or other sets of characters.
+* Sorting Answers [1/1]
+ 5.  [X] Apply Quick Sort to the array *84* 37 93 82 98 27 63 73 93 27 75 55 45 8.
+START  1.  37  27  63  77  27  55  45 *84* 93  98  93
+       2. *37* 27  63  77  27  55  45 |84|*93* 98  93
+       3.  27  27 *37* 63  77  55  45 |84| 93 *93* 98
+       4. *27* 27 |37|*63* 77  55  45 |84| 93 |93| 98
+       5. *27* 27 |37| 55  45 *63* 77 |84| 93  93  98
+       6. |27| 27 |37|*55* 45 |63| 77 |84| 93  93  98
+       7.  27  27 |37| 45 *55*|63| 77 |84| 93  93  98
+DONE   8.  27  27 |37| 45 |55||63| 77 |84| 93  93  98
+PRETTY 9.  27  27  37  45  55  63  77  84  93  93  98
+* Pointers and References Answers [5/5]
+ 6.  [X] Display d1.c's list
+       t = [2,l]
+       l = [2,l]
+       s = [2,l]
+ 7.  [X] Display 11.py's list
+       L = [13,t]
+       t = [3]
+       p = []
+       q = [t,t]
+ 8.  [X] Run ptrs.c Why are the two sets of output different?
+       The First output assigns s as a POINTER to the buffer.
+       The Second output assigns s as a STRING who's intial value is a pointer to the buffer.
+       It is important when working with pointers to remember that they are not actual containers of any information. Because of this, modifying a pointer modifies the container the pointer points to.
+ 9.  [X] Display hash.c's table
+       keyList = [Jaga, Jesse, Cos, Keta, Nash, Vera, Bob]
+       valList = [24, 78, 86, 28, 11, 99, 38]
+       t1 = [0, 24, t2]
+       t2 = [1, 78, t3]
+       t3 = [0, 86, t4]
+       t4 = [0, 28, t5]
+       t5 = [4, 11, t6]
+       t6 = [4, 99, t7]
+       t7 = [3, 38, t6]
+ 10. [X] Write a find function. Input: Key, Integer Reference. Output: 1 or 0. Logic: If Key exists, replace Reference with Value of Key. Return 1. If Key does not exist, return 0.
+       I will use Python. Since no table is present, I will assume a table data structure resembling a list of lists.
+
+       define find(Key, Reference):
+           global Reference
+           global my_table
+           for row in table:
+	       if row[0] == Key:
+	           Reference = row[1]
+	           return 1
+	   else:
+	       return 0
