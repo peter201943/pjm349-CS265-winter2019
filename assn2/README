@@ -8,3 +8,7 @@ Assignment 2: calc.py README
 
 Not much to say here, most comments should be available within the code itself.
 
+I would however greatly appreciate it if the lab instructions were edited for clarity on the following matter:
+  Great confusion occurred over which stacks the author was talking about, or which variables were of the stack type. I had to scrap half of my code because I thought the, "postfix," variable was a string, and had not realized that there were supposed to be TWO stacks, not just one (a working stack and a postfix stack).
+
+I believe any future students would greatly appreciate this added distinction in the assignment instructions.
