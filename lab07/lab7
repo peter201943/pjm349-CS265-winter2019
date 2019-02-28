@@ -1,0 +1,57 @@
+
+Lab 7: Design and Implementation
+
+* General Information
+ - Peter J. Mangelsdorf
+ - pjm349@drexel.edu
+ - Prof. Will Mongan
+ - CS 265
+ - 27 February 2019
+* Table of Answers
+ 1.  (The C Implementation):      Line 
+ 2.  (The C Implementation):      Line 
+ 3.  (The C Implementation):      Line 
+ 4.  (The C Implementation):      Line 
+ 5.  (The C Implementation):      Line 
+ 6.  (The C Implementation):      Line 
+ 7.  (The C Implementation):      Line 
+ 8.  (The C Implementation):      Line 
+ 9.  (The C++ Implementation):    Line 
+ 10. (The C++ Implementation):    Line 
+ 11. (The C++ Implementation):    Line 
+ 12. (The C++ Implementation):    Line 
+ 13. (The C++ Implementation):    Line 
+ 14. (The Python Implementation): Line 
+ 15. (The Python Implementation): Line 
+ 16. (The Python Implementation): Line 
+ 17. (The Python Implementation): Line 
+ 18. (The Python Implementation): Line 
+* Notes
+  ~wmm24/public_html/cs265_wi19/resources/Labs/Design/
+* The C Implementation [0/8]
+ 1.  [ ] What is the difference between add() and addSuffix?
+ 2.  [ ] What does lookup do? Which function(s) call lookup?
+ 3.  [ ] Include the table in your lab sheet. How many references (pointers) are there to each string: 
+         "It's": 
+         "a"   : 
+         "new" : 
+	 "dawn": 
+ 4.  [ ] What are the advantages of this?
+ 5.  [ ] What are the drawbacks?
+        Does the program explicitly give this memory back?
+        Wherever we have more than one reference to heap memory we have a problem.
+ 6.  [ ] Write a function to clean up statetab when we're all done, give the memory back (don't spend a lot of time here). In-line your function here, in the lab-sheet.
+ 7.  [ ] Does your function work properly? What difficulties did you have?
+ 8.  [ ] Take a step back from the table. How could you make sure that each string was freed exactly once?
+* The C++ Implementation [0/5]
+ 1.  [ ] How are the prefixes stored? Why not use a vector?
+ 2.  [ ] What serves as our dictionary (replaces our hash table)?
+ 3.  [ ] How is the satellite data (list of suffices) stored?
+ 4.  [ ] Are there any advantages to this implementation over the C implementation? What are they?
+ 5.  [ ] Are there any drawbacks?
+* The Python Implementation [0/5]
+ 1.  [ ] How are the prefixes stored?
+ 2.  [ ] What serves as our dictionary (replaces our hash table)?
+ 3.  [ ] How is the satellite data (list of suffices) stored?
+ 4.  [ ] Are there any advantages to this implementation over the C++ implementation? What are they?
+ 5.  [ ] Are there any drawbacks?
