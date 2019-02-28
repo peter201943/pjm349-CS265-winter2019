@@ -8,50 +8,77 @@ Lab 7: Design and Implementation
  - CS 265
  - 27 February 2019
 * Table of Answers
- 1.  (The C Implementation):      Line 
- 2.  (The C Implementation):      Line 
- 3.  (The C Implementation):      Line 
- 4.  (The C Implementation):      Line 
- 5.  (The C Implementation):      Line 
- 6.  (The C Implementation):      Line 
- 7.  (The C Implementation):      Line 
- 8.  (The C Implementation):      Line 
- 9.  (The C++ Implementation):    Line 
- 10. (The C++ Implementation):    Line 
- 11. (The C++ Implementation):    Line 
- 12. (The C++ Implementation):    Line 
- 13. (The C++ Implementation):    Line 
- 14. (The Python Implementation): Line 
- 15. (The Python Implementation): Line 
- 16. (The Python Implementation): Line 
- 17. (The Python Implementation): Line 
- 18. (The Python Implementation): Line 
+ 1.  (The C Implementation):      Line 32
+ 2.  (The C Implementation):      Line 35
+ 3.  (The C Implementation):      Line 38
+ 4.  (The C Implementation):      Line 44
+ 5.  (The C Implementation):      Line 45
+ 6.  (The C Implementation):      Line 47
+ 7.  (The C Implementation):      Line 58
+ 8.  (The C Implementation):      Line 60
+ 9.  (The C++ Implementation):    Line 63
+ 10. (The C++ Implementation):    Line 65
+ 11. (The C++ Implementation):    Line 67
+ 12. (The C++ Implementation):    Line 69
+ 13. (The C++ Implementation):    Line 71
+ 14. (The Python Implementation): Line 75
+ 15. (The Python Implementation): Line 77
+ 16. (The Python Implementation): Line 79
+ 17. (The Python Implementation): Line 81
+ 18. (The Python Implementation): Line 83
 * Notes
   ~wmm24/public_html/cs265_wi19/resources/Labs/Design/
-* The C Implementation [0/8]
- 1.  [ ] What is the difference between add() and addSuffix?
- 2.  [ ] What does lookup do? Which function(s) call lookup?
- 3.  [ ] Include the table in your lab sheet. How many references (pointers) are there to each string: 
-         "It's": 
-         "a"   : 
-         "new" : 
-	 "dawn": 
- 4.  [ ] What are the advantages of this?
- 5.  [ ] What are the drawbacks?
-        Does the program explicitly give this memory back?
-        Wherever we have more than one reference to heap memory we have a problem.
- 6.  [ ] Write a function to clean up statetab when we're all done, give the memory back (don't spend a lot of time here). In-line your function here, in the lab-sheet.
- 7.  [ ] Does your function work properly? What difficulties did you have?
- 8.  [ ] Take a step back from the table. How could you make sure that each string was freed exactly once?
-* The C++ Implementation [0/5]
- 1.  [ ] How are the prefixes stored? Why not use a vector?
- 2.  [ ] What serves as our dictionary (replaces our hash table)?
- 3.  [ ] How is the satellite data (list of suffices) stored?
- 4.  [ ] Are there any advantages to this implementation over the C implementation? What are they?
- 5.  [ ] Are there any drawbacks?
-* The Python Implementation [0/5]
- 1.  [ ] How are the prefixes stored?
- 2.  [ ] What serves as our dictionary (replaces our hash table)?
- 3.  [ ] How is the satellite data (list of suffices) stored?
- 4.  [ ] Are there any advantages to this implementation over the C++ implementation? What are they?
- 5.  [ ] Are there any drawbacks?
+* The C Implementation [8/8]
+ 1.  [X] What is the difference between add() and addSuffix?
+        add() adds a string to a list of suffices and updates the prefix. It includes a pointer to the prefix lookup and manages the memory allocated to prefixes.
+        addSuffix() adds the suffix to the state. It includes a pointer to the suffix linked list and manages memory allocation.
+ 2.  [X] What does lookup do? Which function(s) call lookup?
+        lookup looks up a pointer to a character in the prefix table and returns a pointer to sp (a statetab).
+        The add and generate functions call lookup before performing an operation on the sp data structure.
+ 3.  [X] Include the table in your lab sheet. How many references (pointers) are there to each string: 
+        "It's": 1
+        "a"   : 1
+        "new" : 1
+	"dawn": 1
+ 4.  [X] What are the advantages of this?
+        The advantages of having words tied to single pointers is an avoidance of redundant entries, which might tie up memory resources when processing large lists of words. This can be dangerous for secure messaging, as lots of pointers to the word, "the," might be used to break it.
+ 5.  [X] What are the drawbacks? Does the program explicitly give this memory back? Wherever we have more than one reference to heap memory we have a problem.
+        Well, since C has no garbage collection, if the author of the file didn't put any waste collection in, the array of pointers could get crowded quickly with outdated information.
+ 6.  [X] Write a function to clean up statetab when we're all done, give the memory back (don't spend a lot of time here). In-line your function here, in the lab-sheet.
+void clearStates()
+{
+      int placemark, i;
+      
+      for (sp = statetab[placemark]; sp != NULL; sp = sp->next)
+          {for (i = 0; i++)
+	       i.free()
+	  }statetab[placemark].free()
+}
+
+ 7.  [X] Does your function work properly? What difficulties did you have?
+         Not exactly. I have minimal experience with C. I think it clears the memory, but does so for everything, so I wouldn't rcommend using this in any actual programs.
+ 8.  [X] Take a step back from the table. How could you make sure that each string was freed exactly once?
+        One could eliminate the strings from the table by traversing the table, checking the table for matching pointers when the next pointer for removal is selected.
+* The C++ Implementation [5/5]
+ 9.  [X] How are the prefixes stored? Why not use a vector?
+        The prefixes appear to be stored in a deque. This is to allow them to be rapidly popped off as the add function needs them and to directly apply them to the string vector via mapping.
+ 10. [X] What serves as our dictionary (replaces our hash table)?
+        A state table under the build void replicates a hash table.
+ 11. [X] How is the satellite data (list of suffices) stored?
+        They appear to be stored in a vector (the comments are unclear).
+ 12. [X] Are there any advantages to this implementation over the C implementation? What are they?
+        The C++ implementation has fewer lines to read through. Several of these lines are devoted to specifying the data structures used, whereas the C++ code skips several of these.
+ 13. [X] Are there any drawbacks?
+        Due to the C++ implementation not being so specific about its data structures, it inherits generic data structures which may perform slightly worse.
+
+* The Python Implementation [5/5]
+ 14. [X] How are the prefixes stored?
+        The prefixes are stored as a key value pair with the suffix in the "table" dictionary.
+ 15. [X] What serves as our dictionary (replaces our hash table)?
+        A dictionary literally called, "table".
+ 16. [X] How is the satellite data (list of suffices) stored?
+        The suffices are read from istream (either a file or stdin) and written into the "table" dictionary.
+ 17. [X] Are there any advantages to this implementation over the C++ implementation? What are they?
+        Legibility. Python has a much cleaner syntax. This implementation also appears to scale and grow more easily, as the author does not need to worry about garbage collection.
+ 18. [X] Are there any drawbacks?
+        Absolutely. Python runs significantly slower than C++ due to it's JIT compilation strategy. There's also a lot less detail with regards to the specific implementation of the structures, functions, and passing of messages.
