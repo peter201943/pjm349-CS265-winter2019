@@ -1,0 +1,24 @@
+
+Lab 8: Interfaces and Makefiles
+
+* General Information
+* Table of Answers
+* Notes
+* Interfaces [1/6]
+  1. [X] Describe what each of the following mean:
+           I.   Hide Implementation Details
+	         A user should be less concerned with the internal workings of a program and more concerned with how to use a program. Since a program can be used by a wide range of people, it is important to design the interface to be as accessible as possible, but extensible enough for more skilled individuals. This may also be practiced out of security reasons, but otherwise should be followed to a point. A famous saying is to make things as simple as possible, but no more simple than they absolutely need to be.
+	II.  Choose a Small Orthogonal Set of Primitives
+	         This is a complex phrase. Primitives are data types or operations of a low level or, "primitive," nature. You want to reduce the set, or quantity of them to encourage reuse and scalability, which plays into orthogonality, which is the ability to expand linearly, or, "perpendicularly," scale outward as efficiently as possible.
+	III. Don't Reach Behind the User's Back
+	         A method should not utilize risky channels for communicating information, or use risky stacks for storing critical information. This also plays into not making things any simpler than they absolutely must be, you should not build obfuscated software which performs things unless for security purposes, but even this has its limits.
+	IV.  Do the Same Thing the Same Way Everywhere
+	More a property of OOP than anything else. Utilizing the same techniques throughout a program makes it easier to debug and predict behavior. It would be trobuling, for example, if bc used two unique methods of adding and subtracting, which could make accounting for time to compute tricky with large datasets.
+  2. [ ] What are the problems with the first CSV implementation?
+  3. [ ] What was improved in the revision?
+  4. [ ] What problems does the first revision still have? Can two csv files be parsed simultaneously?
+  5. [ ] What changes with the C++ implementation? What problems still remain?
+  6. [ ] Is the C++ interface a good interface?
+  7. [ ] Edit csv.c to use accept more than one file. See csv.h, csvgetline2.c, and makefile for details.
+* Makefiles [1/1]
+ 2.1 [X] Make a makefile.
