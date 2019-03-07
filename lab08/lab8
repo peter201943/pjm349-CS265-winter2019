@@ -15,7 +15,7 @@ Lab 8: Interfaces and Makefiles
  1.6 (Interfaces): Line 41
  1.7 (Interfaces): Line 43
  2.1 (Makefiles):  Line 45
-* Interfaces [6/7]
+* Interfaces [7/7]
   1.1 [X] Describe what each of the following mean:
         I. Hide Implementation Details
 	         A user should be less concerned with the internal workings of a program and more concerned with how to use a program. Since a program can be used by a wide range of people, it is important to design the interface to be as accessible as possible, but extensible enough for more skilled individuals. This may also be practiced out of security reasons, but otherwise should be followed to a point. A famous saying is to make things as simple as possible, but no more simple than they absolutely need to be.
@@ -40,6 +40,6 @@ Lab 8: Interfaces and Makefiles
         The interface is still messy.
   1.6 [X] Is the C++ interface a good interface?
         Partially. It presents less boilerplate to the user than the C implementation, but lacks documentation for some of the behaviors. These is no readme, man page, or internal documentation.
-  1.7 [ ] Edit csv.c to use accept more than one file. See csv.h, csvgetline2.c, and makefile for details.
+  1.7 [X] Edit csv.c to use accept more than one file. See csv.h, csvgetline2.c, and makefile for details.
 * Makefiles [1/1]
   2.1 [X] Make a makefile.
