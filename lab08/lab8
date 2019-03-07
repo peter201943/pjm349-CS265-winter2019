@@ -15,7 +15,7 @@ Lab 8: Interfaces and Makefiles
  1.6 (Interfaces): Line ##
  1.7 (Interfaces): Line ##
  2.1 (Makefiles):  Line ##
-* Interfaces [1/6]
+* Interfaces [1/7]
   1. [X] Describe what each of the following mean:
            I.   Hide Implementation Details
 	         A user should be less concerned with the internal workings of a program and more concerned with how to use a program. Since a program can be used by a wide range of people, it is important to design the interface to be as accessible as possible, but extensible enough for more skilled individuals. This may also be practiced out of security reasons, but otherwise should be followed to a point. A famous saying is to make things as simple as possible, but no more simple than they absolutely need to be.
@@ -26,6 +26,7 @@ Lab 8: Interfaces and Makefiles
 	IV.  Do the Same Thing the Same Way Everywhere
 	More a property of OOP than anything else. Utilizing the same techniques throughout a program makes it easier to debug and predict behavior. It would be trobuling, for example, if bc used two unique methods of adding and subtracting, which could make accounting for time to compute tricky with large datasets.
   2. [ ] What are the problems with the first CSV implementation?
+
   3. [ ] What was improved in the revision?
   4. [ ] What problems does the first revision still have? Can two csv files be parsed simultaneously?
   5. [ ] What changes with the C++ implementation? What problems still remain?
