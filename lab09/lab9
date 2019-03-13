@@ -1,0 +1,27 @@
+
+Lab 9: Debugging and Testing
+
+* General Information
+ - Peter J. Mangelsdorf
+ - Prof. Will Mongan
+ - CS 265
+ - 13 March 2019
+* Table of Answers
+ 1. Line ##
+ 2. Line ##
+ 3. Line ##
+ 4. Line ##
+ 5. Line ##
+* Debugging [0/5]
+ 1. [ ] What happened when you ran bug3? Use ls -ot, see if there are any new files in your directory.
+ 2. [ ] In which function did it bomb?
+ 3. [ ] Okay, now, use GDB to debug these other programs. For each, below, record what the problem was, and how you fixed it.
+     a. bug1.c
+     b. bug2.c
+     c. bug3.c
+     d. avg.c
+     e. Calc.c
+     f. quickSortBug.c/driverBug.cc
+     g. sort2.c
+ 4. [ ] Why can't the compiler catch this? You can uncover the problem by looking at a stack trace from when the program crashed (see the lab on how to do this).
+ 5. [ ] What happens if you are using qsort to sort integers and accidently pass the string comparison function? 
