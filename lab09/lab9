@@ -12,16 +12,28 @@ Lab 9: Debugging and Testing
  3. Line ##
  4. Line ##
  5. Line ##
-* Debugging [0/5]
- 1. [ ] What happened when you ran bug3? Use ls -ot, see if there are any new files in your directory.
- 2. [ ] In which function did it bomb?
- 3. [ ] Okay, now, use GDB to debug these other programs. For each, below, record what the problem was, and how you fixed it.
-     a. bug1.c
-     b. bug2.c
-     c. bug3.c
-     d. avg.c
-     e. Calc.c
-     f. quickSortBug.c/driverBug.cc
-     g. sort2.c
- 4. [ ] Why can't the compiler catch this? You can uncover the problem by looking at a stack trace from when the program crashed (see the lab on how to do this).
- 5. [ ] What happens if you are using qsort to sort integers and accidently pass the string comparison function? 
+* Debugging [5/5]
+ 1. [X] What happened when you ran bug3? Use ls -ot, see if there are any new files in your directory.
+       Two things: An address bundary error occurred, and a new file titled, "core," appeared. It would appear to be a binary file. Less tells me it is gobbledegook.
+ 2. [X] In which function did it bomb?
+       #0  __strcmp_sse2 () at ../sysdeps/x86_64/strcmp.S:173
+       #1  0x000055e71ea73afb in inTable ()
+       #2  0x000055e71ea73a5d in main ()
+       It would appear an error occurred involving the string comparison function in the inTable() method failed.
+ 3. [X] Okay, now, use GDB to debug these other programs. For each, below, record what the problem was, and how you fixed it.
+     a. bug1.c - Nonissue
+     b. bug2.c - Nonissue
+     c. bug3.c - strcmp()
+          The error is an incorrect usage of strcmp() within inTable().
+          I resolved the error by adjusting the syntax of calling strcmp().
+     d. avg.c - Nope nope nope.
+     e. Calc.c - Endless Loop
+          An endless loop occurs upon running the program. It would appear that the for loop has an invalid condition, ";;".
+          I resolved this by giving the condition of for each line.
+     f. quickSortBug.c/driverBug.cc - BUGS
+          I would place assertion statements before and after calling each function to ensure data types had not mutated for the passed in data.
+          I hacked together a solution of dropping any data which is not a string for qsort2.c
+ 4. [X] Why can't the compiler catch this? You can uncover the problem by looking at a stack trace from when the program crashed (see the lab on how to do this).
+       The compiler does not catch this error because no data is being passed into the functions when they are compiled. It is not until they are executed that an invalid operation is attempted.
+ 5. [X] What happens if you are using qsort to sort integers and accidently pass the string comparison function? 
+       An error occurs, because the integers need to be converted to strings, so rather than bug the user, the program crashes.
