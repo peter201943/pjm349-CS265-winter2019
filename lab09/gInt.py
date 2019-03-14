@@ -43,13 +43,21 @@ class gInt :
 	def __mul__( self, rhs ) :
 		'''Return a new gInt, self * rhs'''
 
-		pass
+                r = 0
+                i = 0
+                r = (rhs.real * self.real - rhs.imag * self.imag)
+                i = (rhs.imag * self.real + rhs.real * self.imag)
+                
+		return gInt(r, i)
 	
 	
 	def norm( self ) :
 		'''Return real^2 + imag^2 as an int'''
-
-		pass
+                
+                n = 0
+                n = (self.imag * self.imag) + (self.real * self.real)
+                
+		return n
 
 
 def test() :
