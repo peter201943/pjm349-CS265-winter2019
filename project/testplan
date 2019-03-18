@@ -1,0 +1,13 @@
+
+To run built in tests:
+    "make test"
+
+To run custom tests:
+    ./icalconv.sh [TARGET]
+
+[TARGET] options:
+    http://www.website.com/link/to/your/file.ics
+    file.ics
+
+Note:
+    wget disabled on TUX. Download icalconv and related files to local device to use wget.
