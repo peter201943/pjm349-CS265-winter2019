@@ -7,6 +7,48 @@ Lab 10: Performance
  - CS 265
  - 18 March 2019
 * Table of Answers
- 1. Line 
- 2. Line 
-* Notes
+ 1: Line 12
+ 2: Line 
+* Question 1 (time)
+** Chart
+|     n |  T(n) |    f(n)=n | f(n)=n^2 |  f(n)=n^3 | f(n)=n^(1/2) | f(n)=n^(1/3) | f(n)=n^(1/4) |
+|-------+-------+-----------+----------+-----------+--------------+--------------+--------------|
+|  1000 |  0.17 | 1.7000e-4 | 1.700e-7 | 1.700e-10 |    5.3750e-3 |     1.700e-2 |     3.023e-2 |
+| 10000 |  2.62 | 2.6200e-4 | 2.620e-8 | 2.620e-12 |    2.6200e-2 |     1.216e-1 |     2.620e-1 |
+| 20000 |  6.06 | 3.0300e-4 | 1.515e-8 | 7.575e-13 |    4.2850e-2 |     2.232e-1 |     5.096e-1 |
+| 30000 |  9.90 | 3.3000e-4 | 1.100e-8 | 3.666e-13 |    5.7158e-2 |     3.186e-1 |     7.522e-1 |
+| 40000 | 13.93 | 3.4825e-4 | 8.706e-9 | 2.177e-13 |    6.9650e-2 |     4.073e-1 |     9.850e-1 |
+| 50000 | 17.96 | 3.5920e-4 | 7.184e-9 | 1.437e-13 |    8.0320e-2 |     4.875e-1 |      1.201e0 |
+| 60000 | 22.60 | 3.7666e-4 | 6.277e-9 | 3.767e-13 |    9.2264e-2 |     5.773e-1 |      1.444e0 |
+| 70000 | 28.67 | 4.0957e-4 | 5.851e-9 | 8.359e-13 |    1.0836e-1 |     6.957e-1 |      1.763e0 |
+| 80000 | 36.08 | 4.51003-4 | 5.638e-9 | 7.047e-14 |    1.2756e-1 |     8.373e-1 |      2.145e0 |
+** Conclusions
+T(n) increased as n increased. 
+    2,  3,  3,  3,  4,  5,  6,  7
+f(n)=n insufficient to determine theta. Coefficient increasing.
+    1, .4, .3, .1, .1, .2, .3, .5
+f(n)=n^2 insufficient to determine theta. Coefficient decreasing.
+f(n)=n^3 insufficient to determine theta. Coefficient decreasing. Inefficient procedure, altering parameter.
+f(n)=n^(1/2) insufficient to determine theta. Coefficient increasing.
+f(n)=n^(1/3) insufficient to determine theta. Coefficient increasing. Inefficient procedure, altering parameter.
+Early attempts at determining f(n) {n^2, n^3} failed. Their coefficients did not change according to a pattern.
+Second attempts at determining f(n) {n^(1/2), n^(1/3), n^(1/4)} also failed. Thier coefficients followed a pattern of increasing to infinity.
+I do not suspect quicksort's coefficient is infinity. Conclusion is inconclusive.
+* Question 2 (gprof)
+** Chart
+|     n |     Swaps | f(n)=n | f(n)=n^2 | f(n)=n^(1/2) |
+|-------+-----------+--------+----------+--------------|
+|  1000 |   3425457 |   3425 |  3.425e0 |        108e3 |
+| 10000 |  45721062 |   4572 | 4.572e-1 |        457e3 |
+| 20000 |  98107982 |   4905 | 2.453e-1 |        694e3 |
+| 30000 | 153522280 |   5117 | 1.706e-1 |        886e3 |
+| 40000 | 210173451 |   5254 | 1.313e-1 |       1050e3 |
+| 50000 | 265180908 |   5303 | 1.061e-1 |       1186e3 |
+| 60000 | 319847373 |   5330 | 8.888e-2 |       1306e3 |
+** Conclusions
+f(n)=n appears to be aproaching a fixed value. Grows, but slope decreases. Suspect n^2.
+     Coefficient increments: 1.1, 0.4, 0.2, 0.1, 0.5, 0.3
+f(n)=n^2 appears to be approaching a fixed value. Decreases, but slope decreases. Suspect n^(1/2).
+     Coefficient decrements:  10, 2.1, 0.7, 0.4, 0.3, 0.2
+f(n)=n^(1/2) appears to scale without bound. Increases, with increasing slope.
+Uncertain of pattern of divisor to pursue to satisfy pattern of coefficients. Log(n) attempted, not pursued.
